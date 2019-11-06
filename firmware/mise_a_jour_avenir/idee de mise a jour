@@ -1,0 +1,12 @@
+mise a jour previsible : 
+
+- introduire le cadencement des moteur :
+	possibilité que les ce deplace deux par deux en fonction de la position du soleil 
+
+	les fonction moteur serons a modifier avec des fonction qui recupere des un nombre de parametre inconue. 
+	interesant aussi pour la portabilité du code pour changer facilement de nombre de moteurs 
+
+
+- conection a un rasberry ( zero ) pour recupere les infos de meteo sur une apli 
+
+
