@@ -35,6 +35,7 @@ public:
 	template <unsigned N>
 	struct Data_error
 	{
+		bool error = false;
 		char mess[N];
 		byte bip_code;
 		int value_error;

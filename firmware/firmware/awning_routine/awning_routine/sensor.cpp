@@ -27,6 +27,7 @@ Sensor::Error_feature Sensor::sensor_error(char* mess_err, byte bip_code, int va
 {
 	Error_feature error;
 
+	error.error = true;
 	sprintf(error.mess, "Err: %s", *mess_err);
 	error.bip_code = bip_code;
 	error.value_error = val;
@@ -62,12 +63,20 @@ float WindSenor::read()
 
 void WindSenor::_convert_in_value()
 {
+  
 	if(_coef_calib != 0)
 	{ 
 		speed_wind = read() / _coef_calib; 
-		if (speed_wind < 0 || speed_wind > 300) { sensor_error("Wind Calib", 1, speed_wind); }
+		if (speed_wind < 0 || speed_wind > 300)
+		{ 
+		  char mess[] = "Wind Calib";
+		  sensor_error(mess, 1, speed_wind); 
+		}
 	}
-	else  { sensor_error("Coef Calib", 1, _coef_calib); }
+	else  
+	{ 
+	  char mess[] = "Coef Calib";
+	  sensor_error(mess, 1, _coef_calib); }
 	
 }
 
@@ -83,5 +92,3 @@ BrightnessSensor::BrightnessSensor(byte pin, byte set_sens, float calb=0) : Sens
 {
 
 }
-
-
